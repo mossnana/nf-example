@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Convert Lead</field>
+    <field name="view_cls">form_popup</field>
+    <field name="model">convert.lead</field>
+    <field name="target">_popup</field>
+    <field name="context">{"defaults":{"lead_id":refer_id}}</field>
+</action>

@@ -1,0 +1,109 @@
+<form model="activity">
+    <field name="type"/>
+    <group attrs='{"invisible":[["type","!=","task"]]}'>
+        <separator string="Task Information"/>
+        <group span="5">
+            <field name="user_id"/>
+            <field name="subject"/>
+            <field name="due_date"/>
+        </group>
+        <group span="5">
+            <field name="related_id"/>
+            <field name="name_id"/>
+        </group>
+        <field name="description"/>
+        <separator string="Additional Information"/>
+        <group class="span5">
+            <field name="state"/>
+            <field name="priority"/>
+        </group>
+        <group class="span5">
+            <field name="phone"/>
+            <field name="email"/>
+        </group>
+    </group>
+    <group attrs='{"invisible":[["type","!=","event"]]}'>
+        <separator string="Calendar Details"/>
+        <group span="5">
+            <field name="user_id"/>
+            <field name="subject"/>
+            <field name="event_start"/>
+            <field name="event_end"/>
+        </group>
+        <group span="5">
+            <field name="related_id"/>
+            <field name="name_id"/>
+        </group>
+        <separator string="Other Information"/>
+        <group span="5">
+            <field name="location"/>
+            <field name="state"/>
+        </group>
+        <group span="5">
+            <field name="phone"/>
+            <field name="email"/>
+        </group>
+        <separator string="Description Information"/>
+        <field name="description"/>
+    </group>
+    <group attrs='{"invisible":[["type","!=","meeting"]]}'>
+        <separator string="Meeting Details"/>
+        <group span="5">
+            <field name="user_id"/>
+            <field name="subject"/>
+            <field name="event_start"/>
+            <field name="event_end"/>
+        </group>
+        <group span="5">
+            <field name="related_id"/>
+            <field name="name_id"/>
+        </group>
+        <separator string="Other Information"/>
+        <group span="5">
+            <field name="location"/>
+            <field name="state"/>
+        </group>
+        <group span="5">
+            <field name="phone"/>
+            <field name="email"/>
+        </group>
+        <separator string="Description Information"/>
+        <field name="description"/>
+    </group>
+    <group attrs='{"invisible":[["type","!=","call"]]}'>
+        <separator string="Call Information"/>
+        <group span="5">
+            <field name="user_id"/>
+            <field name="subject"/>
+            <field name="due_date"/>
+        </group>
+        <group span="5">
+            <field name="related_id"/>
+            <field name="name_id"/>
+        </group>
+        <field name="description"/>
+        <separator string="Additional Information"/>
+        <group span="5">
+            <field name="state"/>
+        </group>
+        <group span="5">
+            <field name="phone"/>
+            <field name="email"/>
+        </group>
+    </group>
+    <group attrs='{"invisible":[["type","!=","email"]]}'>
+        <separator string="Email Information"/>
+        <field name="date"/>
+        <field name="user_id"/>
+        <field name="name_id"/>
+        <field name="related_id"/>
+        <field name="subject" size="xlarge"/>
+        <field name="state" invisible="1"/>
+        <field name="body" width="800" height="400"/>
+        <separator string="Additional Information"/>
+        <field name="state" readonly="1"/>
+    </group>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

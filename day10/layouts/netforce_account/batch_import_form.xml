@@ -1,0 +1,80 @@
+<form model="batch.import">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="from_date"/>
+    <field name="to_date"/>
+    <tabs>
+        <tab string="Cash Payments">
+            <field name="cash_account_id"/>
+            <field name="cash_payments" nolabel="1">
+                <list>
+                    <field name="date"/>
+                    <field name="description"/>
+                    <field name="received"/>
+                    <field name="spent"/>
+                    <field name="invoice_no"/>
+                    <field name="other_account_id"/>
+                    <field name="payment_id"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Bank Payments">
+            <field name="bank_account_id"/>
+            <field name="bank_payments" nolabel="1">
+                <list>
+                    <field name="date"/>
+                    <field name="description"/>
+                    <field name="received"/>
+                    <field name="spent"/>
+                    <field name="invoice_no"/>
+                    <field name="other_account_id"/>
+                    <field name="payment_id"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Sales Invoices">
+            <field name="sale_invoices" nolabel="1">
+                <list>
+                    <field name="date"/>
+                    <field name="number"/>
+                    <field name="contact"/>
+                    <field name="description"/>
+                    <field name="amount"/>
+                    <field name="account_id"/>
+                    <field name="tax_id"/>
+                    <field name="invoice_id"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Purchase Invoices">
+            <field name="purchase_invoices" nolabel="1">
+                <list>
+                    <field name="date"/>
+                    <field name="number"/>
+                    <field name="contact"/>
+                    <field name="description"/>
+                    <field name="amount"/>
+                    <field name="account_id"/>
+                    <field name="tax_id"/>
+                    <field name="invoice_id"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Import Files">
+            <group columns="1" span="6">
+                <field name="cash_file"/>
+                <field name="bank_file"/>
+                <field name="sale_file"/>
+                <field name="purchase_file"/>
+                <field name="date_fmt"/>
+            </group>
+            <group columns="1" span="6">
+                <button string="Import Files" method="import_files" type="primary" icon="arrow-right"/>
+            </group>
+        </tab>
+    </tabs>
+    <foot replace="1">
+        <button string="Post Transactions" method="post" type="success" icon="ok"/>
+    </foot>
+</form>

@@ -1,0 +1,15 @@
+<list model="account.fixed.asset">
+    <top>
+        <button string="Depreciation" icon="play-circle" action="depreciation"/>
+    </top>
+    <field name="number"/>
+    <field name="name"/>
+    <field name="type_id"/>
+    <field name="fixed_asset_account_id"/>
+    <field name="date_purchase"/>
+    <field name="price_purchase"/>
+    <field name="accum_dep_account_id"/>
+    <field name="dep_exp_account_id"/>
+    <field name="book_val"/>
+    <field name="state"/>
+</list>

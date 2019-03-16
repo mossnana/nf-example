@@ -1,0 +1,46 @@
+<menu string="Accounting">
+    <item string="Dashboard" action="account_board"/>
+    <item string="Bank">
+        <item string="Bank Accounts" action="bank"/>
+        <item string="Payments" action="payment"/>
+        <item string="Transfers" action="bank_transfer"/>
+        <item string="Statements" action="statement"/>
+    </item>
+    <item string="Receivable" action="cust_invoice"/>
+    <item string="Payable" action="supp_invoice"/>
+    <item string="Reports">
+        <item string="All Reports" action="report_page"/>
+        <divider/>
+        <item string="Aged Receivables Details" action="report_ar_details"/>
+        <item string="Aged Payables Details" action="report_ap_details"/>
+        <item string="Profit &amp; Loss" action="report_profit_loss"/>
+        <item string="Balance Sheet" action="report_balance_sheet"/>
+        <item string="Cash Flow Statement" action="report_cash_flow"/>
+        <item string="Trial Balance" action="report_tb"/>
+        <item string="Journal Report" action="report_journal"/>
+        <item string="General Ledger Summary" action="report_gl"/>
+        <item string="General Ledger Details" action="report_gl_details"/>
+        <item string="Tax Summary Report" action="report_tax_sum"/>
+        <item string="Invoice Analysis" action="invoice_analysis"/>
+    </item>
+    <item string="Other">
+        <!--<item string="Expense Claims" action="expense_draft"/>-->
+        <item string="Journal Entries" action="journal_entry"/>
+        <item string="Fixed Assets" action="fixed_asset"/>
+        <item string="Budgets" action="budget"/>
+        <item string="Tracking Entries" action="account_track_entry"/>
+        <item string="Batch Import" action="batch_import"/>
+        <!--<item string="Reconcile VAT" action="account_reconcile_vat"/>-->
+    </item>
+    <item string="Settings">
+        <item string="Financial Settings" action="fin_settings"/>
+        <item string="Chart of Accounts" action="account"/>
+        <item string="Fixed Asset Types" action="fixed_asset_type"/>
+        <item string="Journals" action="journal"/>
+        <item string="Tax Rates" action="tax_rate"/>
+        <item string="Currencies" action="currency"/>
+        <item string="Tracking Categories" action="account_track"/>
+        <item string="Payment Methods" action="payment_method"/>
+        <item string="Conversion Balances" action="conv_bal"/>
+    </item>
+</menu>

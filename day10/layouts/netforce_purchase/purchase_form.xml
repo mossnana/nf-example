@@ -1,0 +1,109 @@
+<form model="purchase.order" attrs='{"readonly":[["state","in",["confirmed","done","voided"]]]}' show_company="1" show_save="1">
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" action="report_purchase_form"/>
+        <button string="Send" icon="envelope" action="send_purchase"/>
+        <button string="Options" dropdown="1" align="right">
+            <item string="Copy To Goods Receipt" method="copy_to_picking" states="confirmed"/>
+            <item string="Copy To Supplier Invoice" method="copy_to_invoice" states="confirmed"/>
+            <item string="Copy To Purchase Return" method="copy_to_purchase_return" state="done"/>
+            <item string="Copy" method="copy"/>
+            <divider/>
+            <item string="To Draft" method="to_draft" states="confirmed,done"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this purchase order?" states="confirmed"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2" onchange="onchange_contact" condition='[["supplier", "=", "True"]]'/>
+                <field name="date" onchange="onchange_date" span="2"/>
+                <field name="number" span="2"/>
+                <field name="ref" span="2"/>
+                <field name="delivery_date" span="2"/>
+                <field name="is_delivered" span="1"/>
+                <newline/>
+                <field name="currency_id" span="2" onchange="onchange_currency"/>
+                <field name="tax_type" span="2" onchange="onchange_tax_type"/>
+                <field name="price_list_id" span="2" onchange="onchange_pricelist"/>
+                <field name="purchase_type_id" span="2"/>
+                <field name="customer_id" span="2"/>
+                <field name="is_paid" span="1"/>
+                <newline/>
+                <field name="bill_address_id" span="2" condition='[["company_id","=",company_id],["type","=","billing"],["settings_id","=",1]]'/>
+                <field name="ship_address_id" span="2" condition='[["company_id","=",company_id],["type","=","shipping"],["settings_id","=",1]]'/>
+            </group>
+            <field name="lines" nolabel="1">
+                <list onchange="update_amounts">
+                    <field name="product_id" condition='[["can_purchase","=",true]]' onchange="onchange_product"/>
+                    <field name="description"/>
+                    <field name="qty" onchange="onchange_qty"/>
+                    <field name="uom_id" onchange="onchange_uom"/>
+                    <field name="unit_price" onchange="update_amounts"/>
+                    <field name="tax_id" onchange="update_amounts" condition='[["type","=","in"]]'/>
+                    <field name="discount_percent" onchange="update_amounts"/>
+                    <field name="discount_amount" onchange="update_amounts"/>
+                    <field name="amount"/>
+                    <field name="amount_cur"/>
+                    <field name="location_id" onchange="onchange_location"/>
+                    <field name="qty_stock"/>
+                    <field name="ship_method_id"/>
+                    <field name="qty_received"/>
+                    <field name="qty_invoiced"/>
+                    <field name="sale_id"/>
+                </list>
+            </field>
+            <group offset="8" span="4" columns="1">
+                <field name="amount_subtotal"/>
+                <field name="amount_tax"/>
+                <field name="amount_total"/>
+            </group>
+            <newline/>
+            <field name="payment_terms"/>
+            <newline/>
+            <field name="other_info"/>
+        </tab>
+        <tab string="Currencies">
+            <field name="currency_rates" nolabel="1">
+                <list>
+                    <field name="currency_id" onchange="onchange_currency_rate"/>
+                    <field name="rate" onchange="update_line_currency"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Other Info">
+            <field name="user_id"/>
+            <newline/>
+            <field name="sequence_id" condition='[["type","=","purchase_order"]]' onchange="onchange_sequence"/>
+            <newline/>
+            <field name="ship_term_id"/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Confirm" method="confirm" type="success" states="draft" perm="approve_purchase"/>
+        <button string="Completed" method="done" type="success" states="confirmed"/>
+        <button string="Reopen" method="reopen" icon="refresh" states="done"/>
+    </foot>
+    <related>
+        <field name="invoices" click_action="view_invoice"/>
+        <field name="pickings"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="emails"/>
+        <field name="comments"/>
+    </related>
+</form>

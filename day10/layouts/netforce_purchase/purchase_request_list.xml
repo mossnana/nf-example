@@ -1,0 +1,12 @@
+<list model="purchase.request">
+    <head>
+        <button string="Print" icon="print" action="report_purchase_request_form"/>
+    </head>
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="employee_id"/>
+    <field name="date"/>
+    <field name="date_required"/>
+    <field name="other_info"/>
+    <field name="state"/>
+</list>

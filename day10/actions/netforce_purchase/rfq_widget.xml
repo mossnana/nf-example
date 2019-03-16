@@ -1,0 +1,6 @@
+<action>
+    <field name="view_cls">list_view</field>
+    <field name="model">purchase.order</field>
+    <field name="condition">[["state", "=", "confirmed"]]</field>
+    <field name="view_xml">rfq_widget</field>
+</action>

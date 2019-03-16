@@ -1,0 +1,57 @@
+<page model="account.account" title="View Bank Account">
+    <head>
+        <field name="name"/>
+        <field name="bank_no"/>
+        <button string="Manage Account" dropdown="1">
+            <item string="Account Transactions" action="bank" action_options='{"mode":"page","active_id":id,"related_tab":2}'/>
+            <item string="Bank Statements" action="bank" action_options='{"mode":"page","active_id":id,"related_tab":1}'/>
+            <divider/>
+            <item string="Spend Money" action="payment" action_options='{"mode":"form","defaults":{"account_id":id,"type":"out"}}'/>
+            <item string="Receive Money" action="payment" action_options='{"mode":"form","defaults":{"account_id":id,"type":"in"}}'/>
+            <item string="Transfer Money" action="bank_transfer" action_options='{"mode":"form","defaults":{"account_from_id":id}}'/>
+            <divider/>
+            <item string="Reconcile Account" action="bank" action_options='{"mode":"page","active_id":id,"related_tab":0}'/>
+            <item string="Import a Statement" action="import_statement" action_options='{"defaults":{"account_id":id}}'/>
+        </button>
+    </head>
+    <group form_layout="stacked">
+        <field name="balance_statement" span="2" strong="1"/>
+        <field name="balance" span="2" strong="1"/>
+        <field name="balance_cur" span="2" strong="1"/>
+    </group>
+    <related tabs="1">
+        <action name="bank_reconcile2" options='{"account_id":id}' string="Reconcile"/>
+        <field name="statements" string="Bank Statements">
+            <list colors='{"#cfc":[["state","=","reconciled"]]}' no_search="1">
+                <field name="state"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="balance_start"/>
+                <field name="balance_end"/>
+            </list>
+        </field>
+        <field name="move_lines" string="Account Transactions" condition='[["move_id.state","!=","voided"]]'>
+            <list action="view_transaction" colors='{"#cfc":[["state","=","reconciled"]]}'>
+                <head>
+                    <button string="Unreconcile" method="unreconcile" type="primary"/>
+                </head>
+                <search>
+                    <field name="state"/>
+                    <field name="move_date"/>
+                    <field name="move_number"/>
+                    <field name="description"/>
+                    <newline/>
+                    <field name="debit"/>
+                    <field name="credit"/>
+                </search>
+                <field name="state"/>
+                <field name="move_date"/>
+                <field name="move_number"/>
+                <field name="description"/>
+                <field name="debit"/>
+                <field name="credit"/>
+                <field name="amount_cur"/>
+            </list>
+        </field>
+    </related>
+</page>

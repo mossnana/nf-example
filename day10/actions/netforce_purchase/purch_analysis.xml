@@ -1,0 +1,9 @@
+<action>
+    <field name="string">Purchase Analysis</field>
+    <field name="view_cls">report_view</field>
+    <field name="model">purchase.order</field>
+    <field name="group_select">year,quarter,month,week,contact_id,contact_id.categ_id,state</field>
+    <field name="function_select">agg_qty,agg_amount_total,agg_amount_subtotal</field>
+    <field name="menu">purchase_menu</field>
+    <field name="agg_fixed">currency_id</field>
+</action>

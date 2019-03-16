@@ -1,0 +1,25 @@
+<form model="account.alloc.wizard" title="Allocated Credit to Invoice">
+    <field name="credit_id" invisible="1"/>
+    <template>
+        <h5>
+            Allocate balance on <a href="#name=view_invoice&amp;active_id={{context.data.credit_id.0.}}"> {{context.data.credit_id.1.}}</a>
+        </h5>
+    </template>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="invoice_id"/>
+            <field name="date"/>
+            <field name="amount_total"/>
+            <field name="amount_due"/>
+            <field name="amount" onchange="onchange_amount"/>
+        </list>
+    </field>
+    <group offset="8" span="4" columns="1">
+        <field name="amount_credit"/>
+        <field name="amount_alloc"/>
+        <field name="amount_remain"/>
+    </group>
+    <foot replace="1">
+        <button string="Allocate Credit" method="allocate" size="large" type="success"/>
+    </foot>
+</form>

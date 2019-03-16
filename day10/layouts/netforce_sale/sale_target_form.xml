@@ -1,0 +1,11 @@
+<form model="sale.target">
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="user_id"/>
+    <field name="prod_categ_id"/>
+    <field name="amount_target"/>
+    <field name="qty_target"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

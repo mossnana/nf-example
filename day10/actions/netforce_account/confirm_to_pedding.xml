@@ -1,0 +1,5 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="model">account.fixed.asset.confirm.to.pedding</field>
+    <field name="target">_popup</field>
+</action>

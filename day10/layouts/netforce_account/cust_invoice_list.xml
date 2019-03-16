@@ -1,0 +1,23 @@
+<list model="account.invoice" action="view_invoice">
+    <top replace="1">
+        <button string="New Invoice" perm_model="account.invoice,create" action="cust_invoice" action_options='{"mode":"form","form_view_xml":"cust_invoice_form","defaults":{"type":"out","inv_type":"invoice"}}' icon="plus-sign"/>
+        <button string="New Credit Note" perm_model="account.invoice,create" action="cust_invoice" action_options='{"mode":"form","form_view_xml":"cust_credit_form","defaults":{"type":"out","inv_type":"credit"}}' icon="plus-sign"/>
+        <button string="New Debit Note" perm_model="account.invoice,create" action="cust_invoice" action_options='{"mode":"form","form_view_xml":"cust_debit_form","defaults":{"type":"out","inv_type":"debit"}}' icon="plus-sign"/>
+        <button string="Import" action="import_data" action_options='{"import_model":"account.invoice","next":"cust_invoice"}' icon="download"/>
+    </top>
+    <head>
+        <button string="Print" icon="print" action="report_cust_invoice_form"/>
+    </head>
+    <field name="number"/>
+    <field name="tax_no"/>
+    <field name="ref"/>
+    <field name="inv_type"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="due_date"/>
+    <field name="amount_paid"/>
+    <field name="amount_due"/>
+    <field name="currency_id"/>
+    <field name="memo"/>
+    <field name="state"/>
+</list>

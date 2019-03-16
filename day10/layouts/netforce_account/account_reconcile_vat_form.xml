@@ -1,0 +1,45 @@
+<form model="account.reconcile.vat" attrs='{"readonly":[["state","!=","draft"]]}' title="Reconcile VAT" show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Clear" method="clear_tax" states="draft"/>
+        <button string="Options" dropdown="1">
+            <item string="To Draft" method="to_draft" states="posted"/>
+            <divider/>
+            <item string="View Journal Entry" method="view_journal_entry" states="posted"/>
+        </button>
+    </head>
+    <group form_layout="stacked">
+        <field name="number" span="2"/>
+        <field name="type" span="2" onchange="update_account_ids"/>
+        <field name="tax_type" span="2"/>
+        <field name="account_id" span="4" condition='[["id","in",account_ids]]'/>
+        <field name="claim_date" span="2"/>
+        <newline/>
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <field name="doc_date" span="2" onchange="onchange_date"/>
+        <field name="memo" span="4"/>
+        <button span="2" string="Fill Taxes" icon="align-justify" method="fill_tax" states="draft"/>
+        <newline/>
+        <field name="tax_comp_id" span="2" condition='[["trans_type","=",type]]' invisible="1"/>
+        <field name="account_ids" invisible="1"/>
+    </group>
+    <separator string="Taxes"/>
+    <field name="lines" count="10" nolabel="1" noadd="1">
+        <list>
+            <field name="tax_date" required="1"/>
+            <field name="related_id" readonly="1"/>
+            <field name="tax_no"/>
+            <field name="contact_id"/>
+            <field name="tax_base" readonly="1"/>
+            <field name="tax_amount" readonly="1"/>
+        </list>
+    </field>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Post" method="post" type="success" states="draft"/>
+    </foot>
+    <related>
+        <field name="moves"/>
+    </related>
+</form>

@@ -1,0 +1,30 @@
+<form model="sale.forecast">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+            <item string="Update Planned Stock" method="update_stock"/>
+        </button>
+    </head>
+    <field name="number"/>
+    <field name="product_id"/>
+    <field name="customer_id"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="plan_qty"/>
+    <field name="uom_id"/>
+    <field name="location_id"/>
+    <field name="priority"/>
+    <field name="description"/>
+    <field name="actual_qty"/>
+    <field name="plan_out_qty"/>
+    <field name="plan_remain_qty"/>
+    <foot>
+        <button string="Close Forecast" method="close" states="open"/>
+        <button string="Reopen Forecast" method="reopen" states="closed"/>
+    </foot>
+    <related>
+        <field name="stock_moves"/>
+        <field name="comments"/>
+    </related>
+</form>

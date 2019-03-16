@@ -1,0 +1,19 @@
+<menu string="Purchasing">
+    <item string="Dashboard" action="purchase_board"/>
+    <item string="Purchasing">
+        <item string="Purchase Requests" action="purchase_request"/>
+        <item string="Purchase Orders" action="purchase"/>
+        <item string="Purchase Returns" action="purchase_return"/>
+    </item>
+    <item string="Reports">
+        <item string="Purchase Order Analysis" action="purch_analysis"/>
+        <item string="Purchase Line Analysis" action="purch_line_analysis"/>
+        <item string="Purchases by Supplier" action="purch_report_supp"/>
+        <item string="Purchases by Product Category" action="purch_report_product"/>
+        <item string="Commission Purchase Report" action="report_commission_po"/>
+    </item>
+    <item string="Settings">
+        <item string="Purchase Settings" action="purchase_settings"/>
+        <item string="Purchase Types" action="purch_type"/>
+    </item>
+</menu>

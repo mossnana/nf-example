@@ -1,0 +1,7 @@
+<action>
+    <field name="view">collection_view</field>
+    <field name="model">account.statement</field>
+    <field name="condition">[["account_id","=",account_id]]</field>
+    <field name="template">statement_list</field>
+    <field name="layout">bank_page</field>
+</action>

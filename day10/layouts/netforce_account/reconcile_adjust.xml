@@ -1,0 +1,24 @@
+<form model="reconcile.adjust" title="Adjustment">
+    <template>
+        <p>
+            The transaction amount does not match the bank statement line amount.
+            <br/>
+            Would you like to reconcile by adding an adjustment?
+        </p>
+    </template>
+    <field name="line_id" invisible="1"/>
+    <field name="amount"/>
+    <field name="date"/>
+    <field name="account_id"/>
+    <field name="memo"/>
+    <template>
+        {{#if context.data.warning}}
+            <div class="alert alert-error">
+                <strong>Warning</strong>: your adjustment is more than 1.00
+            </div>
+        {{/if}}
+    </template>
+    <foot>
+        <button string="OK" type="primary" method="do_adjust"/>
+    </foot>
+</form>

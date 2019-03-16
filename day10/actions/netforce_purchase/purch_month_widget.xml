@@ -1,0 +1,6 @@
+<action>
+    <field name="view_cls">chart_view</field>
+    <field name="model">report.purchase</field>
+    <field name="method">purchases_per_month</field>
+    <field name="chart_type">bar</field>
+</action>

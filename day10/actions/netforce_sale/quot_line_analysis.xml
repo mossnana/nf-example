@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Quotation Line Analysis</field>
+    <field name="view_cls">report_view</field>
+    <field name="model">sale.quot.line</field>
+    <field name="group_select">quot_id.year,quot_id.quarter,quot_id.month,quot_id.week,quot_id.contact_id,quot_id.contact_id.categ_id,product_id,product_id.categ_id,quot_id.user_id,quot_id.state</field>
+    <field name="function_select">agg_amount,agg_qty</field>
+    <field name="multi_company_filter">quot_id.company_id</field>
+    <field name="menu">sale_menu</field>
+    <field name="agg_fixed">quot_id.currency_id</field>
+</action>

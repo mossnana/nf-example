@@ -1,0 +1,12 @@
+<action>
+    <field name="name">account_track</field>
+    <field name="string">Tracking Categories</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.track.categ</field>
+    <field name="tabs">[
+        ["All",[]],
+        ["Visible",[["or",["invisible","!=",true],["invisible","=",null]]]],
+        ["Invisible",[["invisible","=",true]]]
+        ]</field>
+    <field name="menu">account_menu</field>
+</action>

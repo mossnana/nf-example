@@ -1,0 +1,7 @@
+<action>
+    <field name="view_cls">form_view</field>
+    <field name="model">settings</field>
+    <field name="active_id">1</field>
+    <field name="view_xml">sale_settings</field>
+    <field name="menu">sale_menu</field>
+</action>

@@ -1,0 +1,15 @@
+<form model="purchase.order.line" attrs='{"readonly":[["state","in",["confirmed","done","voided"]]]}'>
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="order_id"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="product_id"/>
+    <field name="description"/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <field name="unit_price"/>
+    <field name="location_id"/>
+    <field name="amount"/>
+</form>

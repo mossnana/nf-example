@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Sales Line Analysis</field>
+    <field name="view_cls">report_view</field>
+    <field name="model">sale.order.line</field>
+    <field name="group_select">order_id.year,order_id.quarter,order_id.month,order_id.week,order_id.date,product_id,product_id.categ_id,product_id.company_id,order_id.contact_id,order_id.contact_id.categ_id,order_id.user_id,order_id,order_id.state</field>
+    <field name="function_select">agg_amount,agg_amount_cur,agg_qty,agg_act_profit</field>
+    <field name="multi_company_filter">order_id.company_id</field>
+    <field name="menu">sale_menu</field>
+    <field name="agg_fixed">order_id.currency_id</field>
+</action>

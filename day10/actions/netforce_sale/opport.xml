@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Opportunities</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">sale.opportunity</field>
+    <field name="tabs">[["All",[]],["Open",[["state","=","open"]]],["Won",[["state","=","won"]]],["Lost",[["state","=","lost"]]]]</field>
+    <field name="menu">sale_menu</field>
+</action>

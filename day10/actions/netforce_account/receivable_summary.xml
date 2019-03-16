@@ -1,0 +1,5 @@
+<action>
+    <field name="view_cls">template_view</field>
+    <field name="template">receivable_summary</field>
+    <field name="layout">receivable_page</field>
+</action>

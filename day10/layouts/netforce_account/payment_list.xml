@@ -1,0 +1,16 @@
+<list model="account.payment">
+    <head>
+        <button string="Print" icon="print" action="report_payment"
+                action_options='{"convert":"pdf"}'/>
+    </head>
+
+    <field name="number"/>
+    <field name="date"/>
+    <field name="contact_id"/>
+    <field name="type"/>
+    <field name="pay_type"/>
+    <field name="account_id"/>
+    <field name="ref"/>
+    <field name="amount_payment"/>
+    <field name="state"/>
+</list>

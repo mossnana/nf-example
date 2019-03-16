@@ -1,0 +1,30 @@
+<form model="payment.method">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="sequence"/>
+    <field name="type"/>
+    <field name="account_id"/>
+    <group attrs='{"invisible": [["type","!=","paypal"]]}'>
+        <separator string="Paypal Account Settings"/>
+        <field name="paypal_user"/>
+        <field name="paypal_password"/>
+        <field name="paypal_signature"/>
+        <field name="paypal_url"/>
+    </group>
+    <group attrs='{"invisible": [["type","!=","paysbuy"]]}'>
+        <separator string="Paysbuy Account Settings"/>
+        <field name="paysbuy_id"/>
+        <field name="paysbuy_username"/>
+        <field name="paysbuy_securecode"/>
+        <field name="paysbuy_url"/>
+    </group>
+    <group attrs='{"invisible": [["type","!=","scb_gateway"]]}'>
+        <separator string="SCB Account Settings"/>
+        <field name="scb_mid"/>
+        <field name="scb_terminal"/>
+        <field name="scb_url"/>
+    </group>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

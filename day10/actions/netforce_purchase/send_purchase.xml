@@ -1,0 +1,12 @@
+<action>
+    <field name="view_cls">form_popup</field>
+    <field name="string">Send Purchase Order</field>
+    <field name="model">send.wizard</field>
+    <field name="print_model">purchase.order</field>
+    <field name="template">purchase_form</field>
+    <field name="template_format">odt2</field>
+    <field name="custom_template_type">purch_order</field>
+    <field name="email_template_type">purch_order</field>
+    <field name="email_contact_field">contact_id</field>
+    <field name="target">_popup</field>
+</action>

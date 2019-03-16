@@ -1,0 +1,30 @@
+<form model="account.credit.wizard" title="Allocate Credit to Invoice">
+    <field name="invoice_id" invisible="1"/>
+    <template>
+        <h5>
+            Allocate oustanding credit to <a href="#name=view_invoice&amp;active_id={{context.data.invoice_id.0.}}"> {{context.data.invoice_id.1.}}</a>
+        </h5>
+    </template>
+    <group form_layout="stacked">
+        <field name="date" span="3"/>
+    </group>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="credit_id" action="view_invoice" condition='[["type","=",parent.type],["inv_type","in",["credit","prepay","overpay"]],["contact_id","=",parent.contact_id],["currency_id","=",parent.currency_id],["state","=","waiting_payment"],["id","not in",parent.lines.nf_pluck("credit_id")]]' onchange="onchange_credit"/>
+            <field name="date"/>
+            <field name="amount_credit_remain"/>
+            <field name="amount" onchange="update_amounts"/>
+        </list>
+    </field>
+    <group offset="8" span="4" columns="1">
+        <field name="amount_due"/>
+        <field name="amount_alloc"/>
+        <field name="amount_remain"/>
+    </group>
+    <field name="type" invisible="1"/>
+    <field name="contact_id" invisible="1"/>
+    <field name="currency_id" invisible="1"/>
+    <foot replace="1">
+        <button string="Allocate Credit" method="allocate" size="large" type="success"/>
+    </foot>
+</form>

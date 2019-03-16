@@ -1,0 +1,9 @@
+<action>
+    <field name="string">Sales Order Analysis</field>
+    <field name="view_cls">report_view</field>
+    <field name="model">sale.order</field>
+    <field name="group_select">year,quarter,month,week,date,contact_id,contact_id.categ_id,user_id,state,currency_id</field>
+    <field name="function_select">agg_qty,agg_amount_total,agg_amount_total_cur,agg_amount_subtotal,agg_est_profit,agg_act_profit</field>
+    <field name="menu">sale_menu</field>
+    <field name="agg_fixed">currency_id</field>
+</action>

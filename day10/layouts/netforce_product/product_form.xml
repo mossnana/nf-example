@@ -1,0 +1,244 @@
+<form model="product" show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Duplicate" method="copy"/>
+            <!--<item string="Create Variants" method="create_variants"/>-->
+            <item string="Create Variants" action="prod_create_variants"/>
+            <item string="To Draft" method="to_draft"/>
+            <divider/>
+            <item string="Ecommerce Preview" method="ecom_preview"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <field name="code"/>
+            <field name="name"/>
+            <field name="type"/>
+            <field name="uom_id"/>
+            <field name="procure_method"/>
+            <field name="supply_method"/>
+            <separator string="Optional Details"/>
+            <field name="description"/>
+            <field name="parent_id" condition='[["type","=","master"]]'/>
+            <field name="image"/>
+            <field name="brand_id"/>
+            <newline/>
+            <field name="categ_id"/>
+            <field name="groups"/>
+            <newline/>
+            <group span="1"/>
+            <group form_layout="stacked" span="10">
+                <field name="replacements" span="12"/>
+            </group>
+            <separator string="Related Products"/>
+            <field name="related_products" nolabel="1" span="12"/>
+        </tab>
+        <tab string="Pricing">
+            <separator string="Cost Price"/>
+            <group form_layout="stacked">
+                <field name="purchase_price" span="2" onchange="update_prices"/>
+                <field name="purchase_currency_id" onchange="onchange_purchase_currency" span="2"/>
+                <field name="purchase_currency_rate" span="2" onchange="update_prices"/>
+                <newline/>
+                <field name="purchase_ship_percent" span="2" onchange="update_prices"/>
+                <field name="purchase_duty_percent" span="2" onchange="update_prices"/>
+                <newline/>
+                <field name="landed_cost" span="2"/>
+                <field name="landed_cost_conv" span="2"/>
+            </group>
+            <separator string="List Price"/>
+            <group form_layout="stacked">
+                <field name="gross_profit" span="2" onchange="update_prices"/>
+                <field name="auto_list_price" span="2"/>
+                <newline/>
+                <field name="sale_price" span="2" onchange="update_prices"/>
+                <field name="max_discount" span="2" string="Listed Gross Profit"/>
+                <field name="sale_price_order_uom" span="2"/>
+                <!--<field name="price_index" span="2"/>-->
+            </group>
+            <separator/>
+            <field name="price_notes"/>
+            <field name="price_date"/>
+        </tab>
+        <tab string="Sales">
+            <field name="can_sell"/>
+            <newline/>
+            <field name="min_sale_qty"/>
+            <field name="sale_unit_qty"/>
+            <field name="sale_uom_id"/>
+            <field name="sale_invoice_uom_id"/>
+            <field name="sale_to_stock_uom_factor"/>
+            <field name="sale_to_invoice_uom_factor"/>
+            <separator/>
+            <field name="sale_channels"/>
+            <field name="payment_methods"/>
+            <separator/>
+            <field name="events"/>
+        </tab>
+        <tab string="Purchasing">
+            <field name="can_purchase"/>
+            <newline/>
+            <field name="purchase_uom_id"/>
+            <field name="purchase_invoice_uom_id"/>
+            <field name="purchase_to_stock_uom_factor"/>
+            <field name="purchase_to_invoice_uom_factor"/>
+            <field name="purchase_lead_time"/>
+            <newline/>
+            <field name="purchase_min_qty"/>
+            <field name="purchase_qty_multiple"/>
+            <separator string="Suppliers"/>
+            <field name="suppliers" nolabel="1" count="0">
+                <list>
+                    <field name="sequence"/>
+                    <field name="supplier_id"/>
+                    <field name="supplier_product_code"/>
+                    <field name="supplier_product_name"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Manufacturing">
+            <field name="mfg_lead_time" scale="3"/>
+            <newline/>
+            <field name="mfg_min_qty"/>
+            <field name="mfg_qty_multiple"/>
+        </tab>
+        <tab string="Accounting">
+            <separator string="Purchasing"/>
+            <field name="purchase_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="purchase_tax_id"/>
+            <field name="purchase_return_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <separator string="Sales"/>
+            <field name="sale_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="sale_tax_id"/>
+            <field name="sale_return_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="sale_promotion_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="sale_promotion_tax_id"/>
+            <separator string="Costing"/>
+            <field name="cost_method"/>
+            <field name="cost_price"/>
+            <field name="cogs_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="stock_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+        </tab>
+        <tab string="Inventory">
+            <field name="weight"/>
+            <field name="volume"/>
+            <field name="width"/>
+            <field name="height"/>
+            <field name="length"/>
+            <field name="store_type_id"/>
+            <field name="shelf_life"/>
+            <field name="packing_size"/>
+            <separator string="Product Locations"/>
+            <field name="locations" nolabel="1">
+                <list>
+                    <field name="sequence"/>
+                    <field name="location_id"/>
+                    <field name="bin_location"/>
+                    <field name="stock_qty"/>
+                </list>
+            </field>
+            <group offset="8" span="4" columns="1">
+                <field name="stock_qty"/>
+            </group>
+            <separator/>
+            <field name="ship_methods"/>
+            <separator/>
+            <field name="require_lot"/>
+            <field name="lot_select"/>
+            <field name="unique_lot"/>
+            <separator/>
+            <field name="stock_plan_horizon"/>
+            <field name="max_qty_loss"/>
+        </tab>
+        <tab string="Ecommerce">
+            <field name="is_published"/>
+            <newline/>
+            <field name="other_url"/>
+            <newline/>
+            <field name="details" wysi="1" width="800" height="200"/>
+            <newline/>
+            <field name="details2_label"/>
+            <newline/>
+            <field name="details2" wysi="1" width="800" height="200"/>
+            <newline/>
+            <field name="details3_label"/>
+            <newline/>
+            <field name="details3" wysi="1" width="800" height="200"/>
+            <newline/>
+            <field name="ecom_hide_qty"/>
+            <field name="ecom_hide_unavail"/>
+            <field name="ecom_no_order_unavail"/>
+            <field name="ecom_select_lot"/>
+            <field name="ecom_lot_before_invoice"/>
+            <newline/>
+            <field name="product_origin"/>
+        </tab>
+        <tab string="Other">
+            <field name="id"/>
+            <field name="create_time"/>
+            <field name="write_time"/>
+            <field name="approve_date" readonly="1"/>
+            <field name="company_id"/>
+            <field name="sale_company_id"/>
+        </tab>
+    </tabs>
+    <foot>
+        <button string="Approve" type="success" method="approve" icon="ok" states="draft" perm="approve_product"/>
+    </foot>
+    <related>
+        <field name="pricelist_items"/>
+        <field name="variants"/>
+        <field name="attributes">
+            <list>
+                <field name="attribute_id"/>
+                <field name="option_id"/>
+            </list>
+            <form>
+                <field name="attribute_id"/>
+                <field name="option_id" condition='[["attribute_id","=",attribute_id]]'/>
+            </form>
+        </field>
+        <field name="components">
+            <list>
+                <field name="component_id"/>
+                <field name="qty"/>
+            </list>
+            <form>
+                <field name="component_id"/>
+                <field name="qty"/>
+            </form>
+        </field>
+        <field name="images">
+            <list>
+                <field name="image" preview="1"/>
+                <field name="title"/>
+                <field name="description"/>
+            </list>
+            <form>
+                <field name="image"/>
+                <field name="title"/>
+                <field name="description"/>
+            </form>
+        </field>
+        <field name="stock_balances"/>
+        <field name="lots"/>
+        <field name="service_items"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

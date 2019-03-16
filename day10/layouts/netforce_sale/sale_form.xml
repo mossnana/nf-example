@@ -1,0 +1,201 @@
+<form model="sale.order" attrs='{"readonly":[["state","in",["confirmed","done","voided"]]]}' show_company="1" show_save="1">
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" action="report_sale_form"/>
+        <button string="Options" dropdown="1">
+            <item string="Copy To Sale Return" method="copy_to_sale_return" states="done"/>
+            <item string="Copy" method="copy"/>
+            <item string="Copy To Customer Invoice" method="copy_to_invoice" states="confirmed"/>
+            <item string="Copy To Goods Issue" method="copy_to_picking" states="confirmed"/>
+            <item string="Copy To Purchase Orders" method="copy_to_purchase"/>
+            <item string="Copy Estimated Costs To Purchase Orders" method="copy_cost_to_purchase"/>
+            <item string="Copy To Production Orders" method="copy_to_production"/>
+            <item string="Copy To Service Order" method="copy_to_job"/>
+            <item string="To Draft" method="to_draft"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this sales order?" states="confirmed"/>
+            <divider/>
+            <item string="Create Estimated Costs" method="create_est_costs"/>
+            <item string="Create Tracking Codes" method="create_track"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2" onchange="onchange_contact" condition='[["customer", "=", "True"]]'/>
+                <field name="date" onchange="onchange_date" span="2"/>
+                <field name="number" span="2"/>
+                <field name="ref" span="2"/>
+                <field name="due_date" span="2"/>
+                <field name="is_delivered" span="2"/>
+                <newline/>
+                <field name="currency_id" span="2" onchange="onchange_currency"/>
+                <field name="tax_type" span="2" onchange="onchange_tax_type"/>
+                <field name="price_list_id" span="2"/>
+                <field name="related_id" span="2"/>
+                <field name="team_id" span="2"/>
+                <field name="is_paid" span="2"/>
+                <newline/>
+                <field name="bill_address_id" span="2" condition='[["contact_id","!=",null],["contact_id","=",contact_id]]'/>
+                <field name="ship_address_id" span="2" condition='[["contact_id","!=",null],["contact_id","=",contact_id]]'/>
+                <field name="ship_method_id" span="2"/>
+                <field name="delivery_slot_id" span="2"/>
+            </group>
+            <newline/>
+            <field name="lines" nolabel="1">
+                <list>
+                    <field name="sequence"/>
+                    <field name="product_id" onchange="onchange_product" condition='[["can_sell","=",true]]'/>
+                    <field name="description"/>
+                    <field name="qty" onchange="onchange_qty"/>
+                    <field name="uom_id" onchange="onchange_uom"/>
+                    <field name="unit_price" onchange="update_amounts"/>
+                    <field name="discount" onchange="update_amounts"/>
+                    <field name="discount_amount" onchange="update_amounts"/>
+                    <field name="promotion_amount"/>
+                    <field name="tax_id" onchange="update_amounts" condition='[["type","=","out"]]'/>
+                    <field name="amount"/>
+                    <field name="location_id" onchange="onchange_location"/>
+                    <field name="qty_stock" readonly="1"/>
+                    <!--<field name="ship_method_id"/>-->
+                    <field name="qty_delivered"/>
+                    <field name="est_cost_amount"/>
+                    <field name="est_profit_amount"/>
+                    <field name="est_margin_percent"/>
+                    <field name="act_cost_amount"/>
+                    <field name="act_profit_amount"/>
+                    <field name="act_margin_percent"/>
+                    <field name="production_id"/>
+                </list>
+            </field>
+            <group span="8">
+                <field name="payment_terms"/>
+                <newline/>
+                <field name="other_info"/>
+            </group>
+            <group span="4" columns="1" horizontal="1">
+                <field name="amount_subtotal"/>
+                <field name="amount_tax"/>
+                <field name="amount_total"/>
+            </group>
+        </tab>
+        <tab string="Promotions">
+            <separator string="Promotions"/>
+            <field name="used_promotions" nolabel="1">
+                <list>
+                    <field name="promotion_id"/>
+                    <field name="product_id"/>
+                    <field name="percent"/>
+                    <field name="amount"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Costing">
+            <separator string="Estimated Costs"/>
+            <field name="est_costs" nolabel="1">
+                <list>
+                    <field name="sequence"/>
+                    <field name="product_id" onchange="onchange_cost_product" condition='[["type","!=","bundle"]]'/>
+                    <field name="description"/>
+                    <field name="supplier_id"/>
+                    <field name="list_price" onchange="update_cost_amount"/>
+                    <field name="purchase_price" onchange="update_cost_amount"/>
+                    <field name="purchase_ship_percent" onchange="update_cost_amount"/>
+                    <field name="purchase_duty_percent" onchange="update_cost_amount"/>
+                    <field name="landed_cost" onchange="update_cost_amount"/>
+                    <field name="qty" onchange="update_cost_amount"/>
+                    <field name="amount_conv" onchange="update_cost_amount"/>
+                    <field name="amount" onchange="update_cost_amount"/>
+                    <field name="currency_id"/>
+                </list>
+            </field>
+            <group form_layout="stacked">
+                <field name="est_sale_amount_conv" span="3"/>
+                <field name="est_cost_amount_conv" span="3"/>
+                <field name="est_profit_amount_conv" span="3"/>
+                <field name="est_margin_percent_conv" span="3"/>
+                <newline/>
+                <field name="est_sale_amount" span="3"/>
+                <field name="est_cost_amount" span="3"/>
+                <field name="est_profit_amount" span="3"/>
+                <field name="est_margin_percent" span="3"/>
+            </group>
+            <separator string="Actual Costs"/>
+            <field name="track_id"/>
+            <field name="track_balance"/>
+            <field name="track_entries" nolabel="1">
+                <list>
+                    <field name="track_id"/>
+                    <field name="date"/>
+                    <field name="related_id"/>
+                    <field name="product_id"/>
+                    <field name="description"/>
+                    <field name="qty"/>
+                    <field name="uom_id"/>
+                    <field name="amount"/>
+                </list>
+            </field>
+            <field name="act_cost_amount" span="4"/>
+            <field name="act_profit_amount" span="4"/>
+            <field name="act_margin_percent" span="4"/>
+        </tab>
+        <tab string="Currencies">
+            <field name="currency_rates" nolabel="1">
+                <list>
+                    <field name="currency_id" onchange="onchange_currency_rate"/>
+                    <field name="rate" onchange="update_line_currency"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Approval">
+            <field name="approved_by_id"/>
+            <button string="Approve" icon="ok" action="sale_approve"/>
+        </tab>
+        <tab string="Other Info">
+            <field name="user_id"/>
+            <newline/>
+            <field name="seller_id"/>
+            <newline/>
+            <field name="sequence_id" condition='[["type","=","sale_order"]]' onchange="onchange_sequence"/>
+            <newline/>
+            <field name="ship_term_id"/>
+            <newline/>
+            <field name="sale_channel_id"/>
+            <newline/>
+            <field name="job_template_id"/>
+            <newline/>
+            <field name="pay_method_id"/>
+            <newline/>
+            <field name="create_time"/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Confirm" method="confirm" size="large" type="success" states="draft" perm="approve_sale"/>
+        <button string="Completed" method="done" size="large" type="success" states="confirmed"/>
+        <button string="Reopen" method="reopen" size="large" states="done" icon="refresh"/>
+    </foot>
+    <related>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="categ_id"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="invoices" click_action="view_invoice"/>
+        <field name="pickings"/>
+        <field name="purchase_lines" click_action="view_purchase"/>
+        <field name="jobs"/>
+        <field name="activities"/>
+        <field name="emails" nodelete="1"/>
+        <field name="comments"/>
+    </related>
+</form>

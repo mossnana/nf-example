@@ -1,0 +1,4 @@
+<list model="seller">
+    <field name="name"/>
+    <field name="code"/>
+</list>

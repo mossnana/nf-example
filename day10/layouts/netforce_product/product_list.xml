@@ -1,0 +1,23 @@
+<list model="product">
+    <head replace="1">
+        <button string="Archive" method="_archive"/>
+        <button string="Restore" method="_restore"/>
+        <button string="Export" method="_export2"/>>
+    </head>
+    <head>
+        <button string="Print Labels" icon="print" action="product_label" action_options="convert=pdf"/>
+        <button string="Approve" method="approve" icon="ok" perm="approve_product"/>
+        <button string="Draft" method="to_draft"/>
+        <button string="Create Thumbnails" method="create_thumbnails" icon="th"/>
+    </head>
+    <field name="code"/>
+    <field name="name"/>
+    <field name="type"/>
+    <field name="uom_id"/>
+    <field name="categ_id"/>
+    <field name="brand_id"/>
+    <field name="sale_price"/>
+    <field name="purchase_price"/>
+    <field name="purchase_currency_id"/>
+    <field name="state"/>
+</list>

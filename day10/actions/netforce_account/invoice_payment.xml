@@ -1,0 +1,5 @@
+<action>
+    <field name="view">model_view</field>
+    <field name="model">invoice.payment</field>
+    <field name="template">invoice_payment</field>
+</action>

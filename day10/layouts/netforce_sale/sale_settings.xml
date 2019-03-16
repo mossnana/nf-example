@@ -1,0 +1,8 @@
+<form model="settings" title="Sales Settings">
+    <separator string="Sales Workflow"/>
+    <field name="sale_copy_picking"/>
+    <field name="sale_copy_invoice"/>
+    <field name="sale_copy_production"/>
+    <!--<field name="allow_excess_invoice_qty"/>-->
+    <!--<field name="allow_excess_invoice_amount"/>-->
+</form>

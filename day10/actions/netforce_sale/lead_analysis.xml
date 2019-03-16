@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Lead Analysis</field>
+    <field name="view_cls">report_view</field>
+    <field name="model">sale.lead</field>
+    <field name="group_select">year,quarter,month,week,lead_source,industry,user_id</field>
+    <field name="menu">sale_menu</field>
+</action>

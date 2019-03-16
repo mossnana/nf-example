@@ -1,0 +1,9 @@
+<form model="account.journal" show_company="1">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="sequence_id"/>
+    <field name="company_id"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>
