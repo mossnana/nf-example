@@ -63,13 +63,17 @@ Module แรกที่ทำ
   ```
   <br/>
   
-  #### 3. การใช้ attibute condition
+  #### 3. การใช้ attibute condition และ states
   - ใช้ใน Model
       ```python
       _fields = { "fund_id":fields.Many2One("petty.cash.fund","Petty Cash Fund", condition=[["state", "=", "approved"]], search=True), }
       ```
   - ใช้ใน Layout
-    ในตัวอย่างหมายถึง กรองข้อมูลที่ field type เป็น pay_in หรือ pay_out
+    - ในตัวอย่างหมายถึง กรองข้อมูลที่ field type เป็น pay_in หรือ pay_out
       ```xml
       <field name="sequence_id" span ="4" condition='[["type","in",["pay_in","pay_out"]]]' onchange="onchange_sequence"/>
+      ```
+    - attibute states คือ โชว์ field เมื่ออยู่ในสถานะนั้นๆ ในตัวอย่างหมายถึงว่า ปุ่ม Draft จะขึ้นมาก็ต่อเมื่อเอกสารอยู่ในสถานะ posted
+      ```xml
+      <item string="To Draft" method="to_draft" states="posted"/>
       ```
