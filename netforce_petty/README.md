@@ -2,8 +2,8 @@
 Module แรกที่ทำ
 
 ### เทคนิคที่ใช้
-1. field JSON
-  ใน model
+#### 1. field JSON
+  - ใน model
   ```python
   class PettyCash(Model):
     _name="petty.cash"
@@ -40,7 +40,7 @@ Module แรกที่ทำ
     }
   ```
   
-  ในไฟล์ XML
+  - ในไฟล์ XML
   ```xml
   <!-- อ้างอิงถึงไฟล์ JSON -->
   <field name="number_receive_total" span="2" invisible="1" view="field_code"/>
@@ -49,8 +49,9 @@ Module แรกที่ทำ
   <!-- condition='[["id","in",number_receive_total]]' หมายถึง ให้แสดงรายการ id ที่มี Receive Petty Cash อยู่ -->
   <field name="fund_id" span="2" required="1" onchange="onchange_fund_pay" condition='[["id","in",number_receive_total]]'/>
   ```
+  <br/>
   
-  2. การให้แสดง read only mode ในสถานะเฉพาะนั้นๆ
+  #### 2. การให้แสดง read only mode ในสถานะเฉพาะนั้นๆ
   เพิ่ม:
   ` attrs='{"readonly":[["ชื่อ field","in",["approved","voided"]]]}' `
   เข้าไปที่ tag form ในตัวอย่างคือ 
@@ -60,3 +61,15 @@ Module แรกที่ทำ
     ...
   </form>
   ```
+  <br/>
+  
+  #### 3. การใช้ attibute condition
+  - ใช้ใน Model
+      ```python
+      _fields = { "fund_id":fields.Many2One("petty.cash.fund","Petty Cash Fund", condition=[["state", "=", "approved"]], search=True), }
+      ```
+  - ใช้ใน Layout
+    ในตัวอย่างหมายถึง กรองข้อมูลที่ field type เป็น pay_in หรือ pay_out
+      ```xml
+      <field name="sequence_id" span ="4" condition='[["type","in",["pay_in","pay_out"]]]' onchange="onchange_sequence"/>
+      ```
