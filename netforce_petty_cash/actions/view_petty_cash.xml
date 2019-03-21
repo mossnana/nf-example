@@ -1,0 +1,6 @@
+<action>
+    <field name="type">method</field>
+    <field name="model">petty.cash</field>
+    <field name="method">view_petty_cash</field>
+    <field name="priority">1</field>
+</action>

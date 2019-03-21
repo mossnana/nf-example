@@ -1,0 +1,9 @@
+<list model="petty.cash.fund">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="max_amt"/>
+    <field name="min_amt"/>
+    <field name="account_id"/>
+    <field name="acc_bal"/>
+    <field name="state"/>
+</list>

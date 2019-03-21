@@ -1,0 +1,17 @@
+<action>
+    <field name="string">Petty Cash Payments</field>
+    <field name="view">multi_view</field>
+    <field name="model">petty.cash</field>
+    <field name="condition">[["type","=","out"]]</field>
+    <field name="tabs">[
+        ["All",[]],["Draft",[["state","=","draft"]]],
+        ["Posted",[["state","=","posted"]]],
+        ["Voided",[["state","=","voided"]]]
+        ]
+    </field>
+    <field name="list_view_xml">petty_cash_payment_list</field>
+    <field name="form_view_xml">petty_cash_payment_form</field>
+    <field name="context">{"type":"out"}</field>
+    <field name="menu">account_menu</field>
+</action>
+

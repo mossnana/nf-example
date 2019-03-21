@@ -1,0 +1,11 @@
+<action>
+    <field name="string">Petty Cash Funds</field>
+    <field name="view">multi_view</field>
+    <field name="model">petty.cash.fund</field>
+    <field name="modes">list,form</field>
+    <field name="tabs">
+    [["All",[]],["Draft",[["state","=","draft"]]],["Approved",[["state","=","approved"]]],["Void",[["state","=","voided"]]]]
+    </field>
+    <field name="menu">account_menu</field>
+</action>
+

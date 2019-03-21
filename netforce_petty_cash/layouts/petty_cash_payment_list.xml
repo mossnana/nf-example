@@ -1,0 +1,8 @@
+<list model="petty.cash">
+    <field name="number" />
+    <field name="date" />
+    <field name="fund_id"/>
+    <field name="note"/>
+    <!--<field name="subtotal" />-->
+    <field name="state" />
+</list>

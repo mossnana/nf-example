@@ -1,0 +1,91 @@
+<form model="petty.cash" attrs='{"readonly":[["state","in",["posted","voided"]]]}' show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" action="report_petty_payment_form"/>
+        <button string="Options" dropdown="1">
+            <item string="To Draft" method="to_draft" states="posted"/>
+            <item string="Void" method="void" states="posted" confirm="Are you sure you want to void this payment?"/>
+            <item string="Copy" method="copy"/>
+            <divider/>
+            <item string="View Journal Entry" method="view_journal_entry" states="posted,voided"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <field name="number_receive_total" span="2" invisible="1" view="field_code"/>
+            <group form_layout="stacked">
+                <field name="number" span="2" required="1"/>
+                <field name="date" span="2" required="1" onchange="onchange_date"/>
+                <field name="fund_id" span="2" required="1" onchange="onchange_fund_pay" condition='[["id","in",number_receive_total]]'/>
+                <field name="number_receive" span="2"/>
+                <field name="amount_bal" span="2"/>
+                <field name="type" invisible="1"/>
+            </group>
+            <newline/>
+            <group>
+                <field name="lines" nolabel="1">
+                    <list>
+                        <field name="product_id" onchange="onchange_product"/>
+                        <field name="description"/>
+                        <field name="account_id"/>
+                        <field name="unit_price" onchange="update_line"/>
+                        <field name="qty" onchange="update_line"/>
+                        <field name="amount" />
+                        <field name="tax_id" onchange="update_line"/>
+                        <field name="tax_type" onchange="update_line"/>
+                        <field name="tax_date"/>
+                        <field name="tax_invoice"/>
+                        <field name="contact_id"/>
+                        <field name="track_id"/>
+                        <field name="track2_id"/>
+                    </list>
+                </field>
+            </group>
+            <group form_layout="stacked" span="8">
+                <field name="note"/>
+            </group>
+            <group span="4" columns="1">
+                <field name="amount_subtotal"/>
+                <field name="amount_tax"/>
+                <field name="amount_wht"/>
+                <field name="amount_total"/>
+            </group>
+        </tab>
+        <tab string="VAT">
+            <field name="taxes">
+                <list>
+                    <field name="tax_comp_id" />
+                    <field name="base_amount" />
+                    <field name="tax_amount" />
+                    <field name="tax_date" />
+                    <field name="contact_id" />
+                    <field name="tax_no" />
+                </list>
+            </field>
+            <button string="Calculate Taxes" method="calc_taxes" icon="pencil"/>
+        </tab>
+        <tab string="WHT">
+            <field name="wht_taxes">
+                <list>
+                    <field name="tax_comp_id" />
+                    <field name="base_amount" />
+                    <field name="tax_amount" />
+                    <field name="tax_date" />
+                    <field name="tax_no" />
+                </list>
+            </field>
+            <button string="Calculate Taxes" method="calc_taxes" icon="pencil"/>
+        </tab>
+        <tab string="Other Info">
+            <group>
+                <field name="company_id"/>
+                <newline/>
+                <field name="journal_id"/>
+                <field name="sequence_id" condition='[["type","in",["pay_in","pay_out"]]]' onchange="onchange_sequence"/>
+            </group>
+        </tab>
+    </tabs>
+    <foot states="draft">
+        <button string="Post" method="post" type="success" states="draft" perm="petty_cash"/>
+    </foot>
+</form>

@@ -1,0 +1,6 @@
+<inherit inherit="report_thai_wht_certif">
+    <field name="advance_clearing_id" position="after">
+        <field name="petty_cash_id" span="2" condition='[["date","&#62;=",date_from],["date","&#60;=",date_to]]'/>
+    </field>
+</inherit>
+

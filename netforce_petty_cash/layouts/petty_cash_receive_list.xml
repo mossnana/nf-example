@@ -1,0 +1,10 @@
+<list model="petty.cash">
+    <field name="number" />
+    <field name="date" />
+    <field name="fund_id"/>
+    <field name="cash_account_id"/>
+    <field name="account_id"/>
+    <field name="currency_id"/>
+    <field name="amount" />
+    <field name="state" />
+</list>

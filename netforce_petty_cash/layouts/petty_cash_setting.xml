@@ -1,0 +1,5 @@
+<inherit inherit="fin_settings" model="settings">
+    <field name="general_journal_id" position="after">
+        <field name="petty_cash_journal_id" />
+    </field>
+</inherit>

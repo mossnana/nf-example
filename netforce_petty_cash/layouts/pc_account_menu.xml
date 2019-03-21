@@ -1,0 +1,17 @@
+<inherit inherit="account_menu">
+    <item string="Petty Cash" position="replace">
+        <item string="Petty Cash">
+            <item string="Petty Cash Received" action="petty_cash_receive"/>
+            <item string="Petty Cash Payments" action="petty_cash_payment"/>
+        </item>
+    </item>
+
+    <item string="Petty Cash Funds" position="replace">
+        <item string="Petty Cash Funds" action="petty_cash_fund"/>
+    </item>
+
+    <item string="Invoice Analysis" position="after">
+        <item string="Petty Cash Report" action="petty_cash_statement"/>
+    </item>
+</inherit>
+

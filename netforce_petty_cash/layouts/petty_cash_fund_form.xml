@@ -1,0 +1,33 @@
+<form model="petty.cash.fund" attrs='{"readonly":[["state","in",["approved","voided"]]]}' show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="To Draft" method="to_draft" states="approved"/>
+            <item string="Void" method="void" states="approved,draft" confirm="Are you sure you want to void this sales order?"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stack">
+                <field name="name" span="4"/>
+                <field name="code" span="3"/>
+                <field name="track_id" span="2"/>
+                <field name="track2_id" span="2"/>
+                <newline/>
+                <field name="max_amt" span="4"/>
+                <field name="min_amt" span="4"/>
+                <field name="account_id" span="3" onchange="onchange_account"/>
+                <field name="currency_id" span="1" readonly="1"/>
+                <field name="acc_bal" span="3"/>
+                <separator string ="Petty Cash Receive"/>
+                <field name="number_receive" span="3" readonly="1"/>
+            </group>
+        </tab>
+        <tab string="Other Info">
+            <field name="company_id" span="4" />
+        </tab>
+    </tabs>
+    <foot states="draft">
+        <button string="Approve" method="approve" size="large" type="success"/>
+    </foot>
+</form>
