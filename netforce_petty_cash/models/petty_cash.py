@@ -1,23 +1,3 @@
-# Copyright (c) 2012-2015 Netforce Co. Ltd.
-#-
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#-
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#-
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
-# OR OTHER DEALINGS IN THE SOFTWARE.
-
 from netforce.model import Model,fields,get_model
 from netforce.access import get_active_company
 from netforce.utils import get_data_path
@@ -51,9 +31,6 @@ class PettyCash(Model):
         "number_receive":fields.Many2One("petty.cash","Petty Cash Receive",readonly=True, search=True), ##check petty cash receive remain
         "number_payment":fields.Many2One("petty.cash","Petty Cash peyment waiting",readonly=True), ##check petty cash payment waiting
         "sequence_id": fields.Many2One("sequence", "Number Sequence"),
-
-
-        ## ----------
         "employee_id":fields.Many2One("hr.employee","Employee"),
         #"tax_type": fields.Selection([["tax_ex", "Tax Exclusive"], ["tax_in", "Tax Inclusive"], ["no_tax", "No Tax"]],"Tax Type"),
         "lines":fields.One2Many("petty.cash.line","petty_cash_id","Payment"),
@@ -68,7 +45,7 @@ class PettyCash(Model):
         "cash_account_currency_id": fields.Many2One("currency", "Currency"),
         "number_receive_total": fields.Json("Number of Payment Receive", function="get_number_receive"),
         }
-
+    
     def _get_number(self, context={}):
         type = context.get("type")
         seq_id = context.get("sequence_id")
