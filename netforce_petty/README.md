@@ -77,3 +77,18 @@ Module แรกที่ทำ
       ```xml
       <item string="To Draft" method="to_draft" states="posted"/>
       ```
+  #### 4. การใช้งาน browse, search
+    - ใช้ใน Model
+      - function *browse* ใช้ในการเอา ids (ในกรณีมีหลาย id) ไปค้นหาข้อมูลต่างๆ ซึ่งจะได้ออกมาเป็น *object ของ model* นั้น
+      - อย่างในตัวอย่าง => receive_ptc จะเป็น object ที่บรรจุข้อมูล field ต่างๆของ model => petty.cash.fund
+      - function *search* ใช้ในการ search หาข้อมูลแบบมีเงื่อนไข แล้ว return ข้อมูลออกมาเป็น id ที่เป็น list
+      ```python
+      # browse
+      fund_id = get_model("petty.cash.fund").browse(data["fund_id"])
+      
+      # search
+      receive_ptc = get_model("petty.cash.fund").search([['number_receive', '!=', None]])
+      # output: [1, 2, 3]
+      # เมื่อ id 1 2 3 มี ข้อมูลใน field number_receive
+      ```
+  
