@@ -1,0 +1,8 @@
+<list model="account.reconcile.vat" title="Reconcile VAT">
+    <field name="number"/>
+    <field name="doc_date"/>
+    <field name="type"/>
+    <field name="tax_type"/>
+    <field name="claim_date"/>
+    <field name="state"/>
+</list>

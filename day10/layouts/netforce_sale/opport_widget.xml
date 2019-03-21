@@ -1,0 +1,9 @@
+<list model="sale.opportunity">
+    <head>
+        <button string="New Opportunity" perm_model="sale.opportunity,create" action="opport" action_options="mode=form" icon="plus-sign" noselect="1"/>
+    </head>
+    <field name="name"/>
+    <field name="user_id"/>
+    <field name="stage_id"/>
+    <field name="date_close"/>
+</list>

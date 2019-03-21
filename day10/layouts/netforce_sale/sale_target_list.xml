@@ -1,0 +1,12 @@
+<list model="sale.target">
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="user_id"/>
+    <field name="prod_categ_id"/>
+    <field name="amount_target"/>
+    <field name="amount_actual"/>
+    <field name="amount_expected"/>
+    <field name="qty_target"/>
+    <field name="qty_actual"/>
+    <field name="qty_expected"/>
+</list>

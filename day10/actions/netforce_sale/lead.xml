@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Leads</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">sale.lead</field>
+    <field name="tabs">[["All",[]],["Open",[["state","=","open"]]],["Contacted",[["state","=","contacted"]]],["Qualified",[["state","=","qualified"]]],["Unqualified",[["state","=","unqualified"]]],["Recycled",[["state","=","recycled"]]]]</field>
+    <field name="menu">sale_menu</field>
+</action>

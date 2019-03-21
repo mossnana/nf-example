@@ -1,0 +1,43 @@
+<form model="sale.lead" show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Copy to Contact" method="copy_to_contact"/>
+            <item string="Copy to Opportunity" action="convert_lead"/>
+        </button>
+    </head>
+    <separator string="Lead Information"/>
+    <group span="6" columns="1">
+        <field name="user_id"/>
+        <field name="first_name"/>
+        <field name="last_name"/>
+        <field name="company"/>
+        <field name="title"/>
+    </group>
+    <group span="6" columns="1">
+        <field name="state"/>
+        <field name="phone"/>
+        <field name="email"/>
+        <field name="rating"/>
+    </group>
+    <separator string="Address Information"/>
+    <field name="addresses" view="form_list"/>
+    <separator string="Additional Information"/>
+    <group span="6" columns="1">
+        <field name="employees"/>
+        <field name="revenue"/>
+        <field name="website"/>
+    </group>
+    <group span="6" columns="1">
+        <field name="lead_source"/>
+        <field name="industry"/>
+    </group>
+    <separator string="Description Information"/>
+    <field name="description"/>
+    <field name="company_id" invisible="1"/>
+    <related>
+        <field name="emails" action="email" noadd="1"/>
+        <field name="activities"/>
+        <field name="comments"/>
+    </related>
+</form>

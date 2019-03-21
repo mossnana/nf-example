@@ -1,0 +1,8 @@
+<list model="product">
+    <head>
+        <button string="Add Product" icon="plus-sign" perm_model="product,create" noselect="1" action="product" action_options="mode=form"/>
+    </head>
+    <field name="name"/>
+    <field name="code"/>
+    <field name="type"/>
+</list>

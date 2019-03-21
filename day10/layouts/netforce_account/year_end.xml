@@ -1,0 +1,8 @@
+<form model="year.end" title="Year End Closing">
+    <label string="This wizard is used to create year-end closing journal entries."/>
+    <separator/>
+    <field name="date"/>
+    <foot replace="1">
+        <button string="Create Closing Entry" method="create_entry" type="primary" icon="arrow-right"/>
+    </foot>
+</form>

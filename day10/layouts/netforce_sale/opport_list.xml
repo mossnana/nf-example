@@ -1,0 +1,10 @@
+<list model="sale.opportunity">
+    <field name="user_id"/>
+    <field name="name"/>
+    <field name="contact_id"/>
+    <field name="date_close"/>
+    <field name="stage_id"/>
+    <field name="probability"/>
+    <field name="amount"/>
+    <field name="state"/>
+</list>

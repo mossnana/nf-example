@@ -1,0 +1,4 @@
+<form model="seller">
+    <field name="name"/>
+    <field name="code"/>
+</form>

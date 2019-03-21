@@ -1,0 +1,5 @@
+<form model="settings" title="Purchase Settings">
+    <separator string="Purchase Workflow"/>
+    <field name="purchase_copy_picking"/>
+    <field name="purchase_copy_invoice"/>
+</form>

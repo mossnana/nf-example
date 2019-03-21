@@ -1,0 +1,10 @@
+<search model="account.reconcile.vat">
+    <field name="number"/>
+    <field name="type"/>
+    <field name="tax_type"/>
+    <field name="account_id"/>
+    <field name="claim_date"/>
+    <newline/>
+    <field name="doc_date"/>
+    <field name="state"/>
+</search>

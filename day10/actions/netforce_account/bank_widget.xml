@@ -1,0 +1,9 @@
+<action>
+    <field name="view">grid_view</field>
+    <field name="string">Bank Accounts</field>
+    <field name="model">account.account</field>
+    <field name="condition">[["type","in",["bank","cash","cheque"]]]</field>
+    <field name="order">name</field>
+    <field name="view_xml">bank_widget</field>
+    <field name="no_title">1</field>
+</action>

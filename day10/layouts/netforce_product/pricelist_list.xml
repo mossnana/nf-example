@@ -1,0 +1,6 @@
+<list model="price.list">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="currency_id"/>
+    <field name="date"/>
+</list>

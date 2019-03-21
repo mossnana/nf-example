@@ -1,0 +1,11 @@
+<action>
+    <field name="string">Reconcile VAT</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.reconcile.vat</field>
+    <field name="tabs">
+        [["All",[]],
+        ["Draft",[["state","=","draft"]]],
+        ["Posted",[["state","=","posted"]]]]
+    </field>
+    <field name="menu">account_menu</field>
+</action>

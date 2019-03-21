@@ -1,0 +1,7 @@
+<list model="account.tax.rate">
+    <field name="name"/>
+    <field name="rate"/>
+    <field name="wht_rate"/>
+    <field name="payer"/>
+    <field name="type"/>
+</list>

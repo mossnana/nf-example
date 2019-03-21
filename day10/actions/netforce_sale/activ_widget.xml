@@ -1,0 +1,6 @@
+<action>
+    <field name="view_cls">list_view</field>
+    <field name="model">activity</field>
+    <field name="condition">[["state", "!=", "done"]]</field>
+    <field name="view_xml">activ_widget</field>
+</action>

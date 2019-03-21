@@ -1,0 +1,7 @@
+<form model="sale.stage">
+    <field name="name"/>
+    <field name="sequence"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

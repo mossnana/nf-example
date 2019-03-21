@@ -1,0 +1,6 @@
+<action>
+    <field name="view">multi_view</field>
+    <field name="string">Payment Methods</field>
+    <field name="model">payment.method</field>
+    <field name="menu">account_menu</field>
+</action>

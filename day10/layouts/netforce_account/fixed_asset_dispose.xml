@@ -1,0 +1,14 @@
+<form model="account.fixed.asset.dispose" title="Dispose Fixed Asset">
+    <separator string="Details"/>
+    <group form_layout="stacked">
+        <field name="date" onchange="onchange_date" span="2"/>
+        <field name="loss_acc_id" span="2" condition='[["type","!=","view"]]'/>
+        <field name="accum_depr_amount" span="2" readonly="1"/>
+        <!--get for onchange date-->
+        <field name="asset_id" span="2" invisible="1"/>
+    </group>
+    <foot replace="1">
+        <button string="Depreciation" type="success" method="dispose_depreciation"/>
+        <button string="Dispose" type="success" method="dispose"/>
+    </foot>
+</form>

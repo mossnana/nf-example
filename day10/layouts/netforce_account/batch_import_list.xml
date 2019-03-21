@@ -1,0 +1,5 @@
+<list model="batch.import">
+    <field name="from_date"/>
+    <field name="to_date"/>
+    <field name="state"/>
+</list>

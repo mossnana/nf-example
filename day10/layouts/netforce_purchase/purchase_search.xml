@@ -1,0 +1,9 @@
+<search model="purchase.order">
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="location_id"/>
+    <field name="product_id"/>
+    <field name="state"/>
+</search>

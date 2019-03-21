@@ -1,0 +1,5 @@
+<action>
+    <field name="type">method</field>
+    <field name="model">purchase.order</field>
+    <field name="method">view_purchase</field>
+</action>

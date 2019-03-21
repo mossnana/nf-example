@@ -1,0 +1,13 @@
+<list model="account.move.line">
+    <search>
+        <field name="move_date"/>
+        <field name="description"/>
+        <field name="debit"/>
+        <field name="credit"/>
+    </search>
+    <field name="move_date"/>
+    <field name="description"/>
+    <field name="debit"/>
+    <field name="credit"/>
+    <field name="amount_cur"/>
+</list>

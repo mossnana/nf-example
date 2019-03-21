@@ -1,0 +1,21 @@
+<form model="account.budget">
+    <field name="name"/>
+    <newline/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <related>
+        <field name="lines">
+            <list>
+                <field name="account_id"/>
+                <field name="budget_amount"/>
+                <field name="actual_amount"/>
+                <field name="variance"/>
+                <field name="variance_percent"/>
+            </list>
+            <form>
+                <field name="account_id"/>
+                <field name="budget_amount"/>
+            </form>
+        </field>
+    </related>
+</form>

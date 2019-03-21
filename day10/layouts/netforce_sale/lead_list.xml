@@ -1,0 +1,9 @@
+<list model="sale.lead">
+    <field name="date"/>
+    <field name="user_id"/>
+    <field name="name"/>
+    <field name="company"/>
+    <field name="rating"/>
+    <field name="lead_source"/>
+    <field name="state"/>
+</list>

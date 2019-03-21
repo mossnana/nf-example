@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Product Analysis</field>
+    <field name="view_cls">report_view</field>
+    <field name="model">product</field>
+    <field name="group_select">categ_id,brand_id,type</field>
+    <field name="menu">product_menu</field>
+</action>

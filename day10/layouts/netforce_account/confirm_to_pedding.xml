@@ -1,0 +1,8 @@
+<form model="account.fixed.asset.confirm.to.pedding" title="WARNING!">
+    <template>
+        Journal entry is created, will be voided after this action is confirmed!
+    </template>
+    <foot>
+        <button string="Confirm" method="confirm" type="success"/>
+    </foot>
+</form>

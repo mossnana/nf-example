@@ -1,0 +1,10 @@
+<search model="product">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="type"/>
+    <field name="cost_method"/>
+    <newline/>
+    <field name="categ_id" child_of="1"/>
+    <field name="brand_id"/>
+    <field name="company_id" child_of="1"/>
+</search>

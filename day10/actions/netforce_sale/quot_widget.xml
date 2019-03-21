@@ -1,0 +1,6 @@
+<action>
+    <field name="view_cls">list_view</field>
+    <field name="model">sale.quot</field>
+    <field name="condition">[["state", "in", ["waiting_approval", "approved"]]]</field>
+    <field name="view_xml">quot_widget</field>
+</action>

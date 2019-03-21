@@ -1,0 +1,14 @@
+<board>
+    <vpanel>
+        <widget action="exp_revenue_widget" string="Expected revenue"/>
+        <widget action="opport_stage_widget" string="Opportunities by stage"/>
+        <widget action="sale_month_widget" string="Sales per month"/>
+        <widget action="sale_prod_categ_widget" string="Sales per product category"/>
+    </vpanel>
+    <vpanel>
+        <widget action="opport_widget" string="Open opportunities"/>
+        <widget action="activ_widget" string="Pending activities"/>
+        <widget action="quot_widget" string="Pending quotations"/>
+        <widget action="sale_widget" string="Pending sales orders"/>
+    </vpanel>
+</board>

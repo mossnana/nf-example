@@ -1,0 +1,11 @@
+<action>
+    <field name="view">multi_view</field>
+    <field name="string">Bank Accounts</field>
+    <field name="model">account.account</field>
+    <field name="condition">[["type","in",["bank","cash","cheque"]]]</field>
+    <field name="order">name</field>
+    <field name="modes">grid,page</field>
+    <field name="grid_view_xml">bank_grid</field>
+    <field name="page_view_xml">bank_page</field>
+    <field name="menu">account_menu</field>
+</action>

@@ -1,0 +1,8 @@
+<action>
+    <field name="view">grid_view</field>
+    <field name="model">account.statement.line</field>
+    <field name="condition">[["statement_id.account_id","=",account_id],["state","=","not_reconciled"]]</field>
+    <field name="order">date</field>
+    <field name="limit">10</field>
+    <field name="no_title">1</field> <!-- XXX -->
+</action>

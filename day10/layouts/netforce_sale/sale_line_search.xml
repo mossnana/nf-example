@@ -1,0 +1,7 @@
+<search model="sale.order.line">
+    <field name="date"/>
+    <field name="order_id.contact_id"/>
+    <field name="product_id"/>
+    <field name="product_categ_id"/>
+    <field name="order_id.state"/>
+</search>

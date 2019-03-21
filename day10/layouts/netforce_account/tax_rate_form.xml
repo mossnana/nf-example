@@ -1,0 +1,33 @@
+<form model="account.tax.rate">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+        </button>
+    </head>
+    <field name="name"/>
+    <field name="code"/>
+    <field name="type"/>
+    <field name="payer" />
+    <newline />
+    <group column="1" span="6" />
+    <group column="1" span="6">
+        <field name="note" span="12" attrs='{"invisible":[["payer","!=","other"]]}' />
+    </group>
+    <separator string="Components"/>
+    <field name="components" nolabel="1">
+        <list>
+            <field name="name"/>
+            <field name="rate"/>
+            <field name="account_id" condition='[["type","!=","view"]]'/>
+            <field name="type"/>
+            <field name="trans_type"/>
+            <field name="description"/>
+        </list>
+    </field>
+    <group offset="8" span="4" columns="1">
+        <field name="rate"/>
+    </group>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

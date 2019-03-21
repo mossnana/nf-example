@@ -1,0 +1,6 @@
+<action>
+    <field name="view">model_view</field>
+    <field name="model">report.receivable</field>
+    <field name="method">receivable_status</field>
+    <field name="template">receivable_status</field>
+</action>
