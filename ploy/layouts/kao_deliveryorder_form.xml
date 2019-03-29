@@ -1,0 +1,24 @@
+<form model="kao.delivery" attrs = '{"readonly":[["state","in",["confirmed"]]]}'>
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="numberdv" readonly="1"/>
+    <field name="address"/>
+    <field name="contact_id"/>
+    <field name="phone"/>
+    <field name="date"/>
+    <field name="related_id" readonly="1"/>
+    <newline/>
+    <field name="line" nolabel="1">
+        <list noadd="1" noremove="1">
+            <field name="product_id" condition ='[["foodtype","=",true]]'/>
+            <field name="amount"/>
+            <field name="price" readonly="1"/>
+            <field name="total" readonly="1"/>
+        </list>
+    </field>
+    <foot>
+        <button string ="Complete" method ="complete" type ="success" states ="confirm"/>
+        <button string ="Confirm" method ="confirmed" type ="success" states ="draft"/>
+    </foot>
+</form>

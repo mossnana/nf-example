@@ -1,0 +1,5 @@
+<inherit model="sale.order" inherit="sale_list">
+    <field name="overdue" position="after">
+        <field name="description"/>
+    </field>    
+</inherit>

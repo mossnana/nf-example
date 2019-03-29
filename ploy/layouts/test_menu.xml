@@ -1,0 +1,6 @@
+<menu string="Topic">
+    <item string="test model" action="test"/>
+    <item string="Hello" action="hi"/>
+    <item string="Search" action="tsearch"/>
+    <item string="Home" action="kaoteang"/>
+</menu>

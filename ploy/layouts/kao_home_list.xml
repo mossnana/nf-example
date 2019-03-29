@@ -1,0 +1,6 @@
+<list model="kaoteang">
+    <field name="number"/>
+    <field name="contact_id"/>
+    <field name="alltotal"/>
+</list>
+

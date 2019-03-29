@@ -1,0 +1,9 @@
+<inherit model="sale.order" inherit="sale_form">
+    <field name="delivery_slot_id" position="after">
+    <newline/>
+        <field name="description" span="3"/>
+    </field>
+    <field name="payment_terms" position="before">
+        <field name="topic"/>
+    </field>
+</inherit>

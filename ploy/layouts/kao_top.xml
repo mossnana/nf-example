@@ -1,0 +1,5 @@
+<menu string ="Kinkao">
+    <item string="Order" action="kaoteang"/>
+    <item string="Product" action="product"/>
+    <item string="Delivery" action="kao_delivery"/>
+</menu>

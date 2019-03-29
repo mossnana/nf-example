@@ -1,0 +1,13 @@
+<inherit inherit="main_menu">
+<!--<item string="Accounting" action="account_board" position="replace">-->
+<!--<item string="Test" action="test"/>-->
+<!--</item>-->
+<!--<item string="Inventory" action="stock_board" position="before">-->
+<!--<item string="Test" action="test"/>-->
+<!--</item>-->
+    <item string="Sales" position="after">
+        <item string="Test Na ja" action="test"/>
+        <item string="Hello Test" action="hi"/>
+        <item string="Kao teang" action="kaoteang"/>
+    </item>
+</inherit>

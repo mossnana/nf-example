@@ -1,0 +1,5 @@
+<list model="testhi">
+    <field name="num1"/>   
+    <field name="num2"/>   
+    <field name="num3"/>   
+</list>

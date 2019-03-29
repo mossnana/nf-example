@@ -1,0 +1,8 @@
+<form model="testhi">
+    <field name="num1" onchange="onchange_result"/>
+    <field name="num2" onchange="onchange_result"/>
+    <field name="num3" readonly="1"/>
+    <foot>
+        <button string="Confirm" method="confirm" size="large" type="success"/>
+    </foot>
+</form>

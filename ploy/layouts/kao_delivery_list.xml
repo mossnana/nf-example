@@ -1,0 +1,6 @@
+<list model="kao.delivery">
+    <field name="numberdv"/>
+    <field name="contact_id"/>
+    <!--<field name="alltotal"/>-->
+</list>
+

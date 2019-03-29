@@ -1,0 +1,12 @@
+<action>
+    <field name="string">Order</field>
+    <field name="model">kaoteang</field>
+    <field name="view_cls">multi_view</field>
+    <field name="tabs">[
+        ["All",[]],
+        ["HERE",[["cate","=","here"]]],
+        ["ORDERHOME",[["cate","=","orderhome"]]],
+        ["DELIVERY",[["cate","=","delivery"]]]
+        ]</field>
+    <field name="menu">kao_top</field>
+</action>

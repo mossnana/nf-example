@@ -1,0 +1,5 @@
+<inherit model="job" inherit="job_form">
+    <field name="related_id" position="after">
+        <field name="description"/>    
+    </field>
+</inherit>

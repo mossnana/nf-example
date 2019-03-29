@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Product</field>
+    <field name="model">kao.product</field>
+    <field name="view_cls">multi_view</field>
+    <field name="menu">kao_top</field>
+    
+</action>

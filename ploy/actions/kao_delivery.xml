@@ -1,0 +1,13 @@
+<action>
+    <field name="string">Order</field>
+    <field name="model">kao.delivery</field>
+    <field name="view_cls">multi_view</field>
+    <field name="tabs">[
+        ["All",[]],
+        ["DRAFT",[["state","=","draft"]]],
+        ["CONFIRM",[["state","=","confirm"]]],
+        ["COMPLETE",[["state","=","complete"]]]
+        ]</field>
+    
+    <field name="menu">kao_top</field>
+</action>
