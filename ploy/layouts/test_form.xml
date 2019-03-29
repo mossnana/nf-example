@@ -1,0 +1,14 @@
+<form model="test">
+    <field name="code" onchange="onchange_code"/>
+    <field name="description"/>
+    <field name="qty" span="4"/>
+    <field name="name"/>
+    <field name="invoice_id" onchange="onchange_invoice"/>
+    <field name="line">
+        <list>
+            <field name="num1" onchange="onchange_code"/>
+            <field name="num2" onchange="onchange_qty"/>
+            <field name="num3" readonly="1"/>
+        </list>
+    </field>
+</form>

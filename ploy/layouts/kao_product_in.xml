@@ -1,0 +1,7 @@
+<inherit model="product" inherit="product_form">
+    <field name="supply_method" position="after">
+        <field name="price"/>
+        <field name="foodtype"/>
+
+    </field>
+</inherit>

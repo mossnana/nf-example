@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Confirm Pay</field>
+    <field name="view_cls">form_popup</field>
+    <field name="width">1000</field>
+    <field name="model">kao.popup</field>
+    <field name="target">_popup</field>
+</action>    

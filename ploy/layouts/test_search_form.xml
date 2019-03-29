@@ -1,0 +1,31 @@
+<form model="testsearch">
+    <head>
+        <field name="state"/>
+        <button string="Option" dropdown="1">
+            <item string="To Draft" method="to_draft" />
+            <item string="Copy" method="copy" />
+            <item string="Copy to test" method="copytest" />
+        </button>
+    </head>
+
+    <field name="contact_id" onchange="onchange_namcod"/>
+    <field name="product_id"/>
+    <field name="qty_total"/>
+    <field name="sale_id" onchange="onchange_product"/>
+    <field name="namcod" readonly="1"/>
+    <field name="line">
+        <list>
+            <field name="num1" onchange="onchange_mnum1"/>
+            <field name="num2" onchange="onchange_mnum1"/>
+            <field name="num3" readonly="1"/>
+            <field name="onnmcd" readonly="1"/>
+        </list>
+    </field>
+    <field name="mnum1" readonly="1" span="3"/>
+    <field name="mnum2" readonly="1" span="3"/>
+    <field name="mnum3" readonly="1" />
+    <foot>
+        <button string ="Approve" method ="approve" size ="large" type ="success" states = "draft"/>       
+        <button string ="Completed" method ="confirmed" type ="success" states = "confirmed"/>
+    </foot>
+</form>

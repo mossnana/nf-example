@@ -1,0 +1,6 @@
+<action>
+<field name="string">hi</field>                                    
+<field name="view_cls">multi_view</field>                          
+<field name="model">testhi</field>                         
+<field name="menu">test_menu</field>                               
+</action>

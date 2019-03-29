@@ -1,0 +1,13 @@
+<action>
+    <field name="string">search</field>
+    <field name="model">testsearch</field>
+    <field name="view_cls">multi_view</field>
+    <field name="tabs">[
+        ["All",[]],
+        ["Draft",[["state","=","draft"]]],
+        ["Confirmed",[["state","=","confirmed"]]],
+        ["Completed",[["state","=","done"]]],
+        ["Voided",[["state","=","voided"]]]
+        ]</field>
+     <field name="menu">test_menu</field>
+</action>

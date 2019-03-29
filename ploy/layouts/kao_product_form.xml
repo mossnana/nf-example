@@ -1,0 +1,7 @@
+<form model="kao.product">
+    <field name="code"/>
+    <field name="namep"/>
+    <field name="price"/>
+    
+
+</form>

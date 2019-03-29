@@ -1,0 +1,6 @@
+<list model="test">
+    <field name="code"/>
+    <field name="description"/>
+    <field name="qty"/>
+    <field name="name"/>
+</list>
